@@ -115,9 +115,9 @@ const handleSubmit = async (e) => {
         
 
 
-
-        typeText(messageDiv, parsedData);
         makeBotTalk(parsedData);
+        typeText(messageDiv, parsedData);
+        
     }   else {
         const err = await response.text();
 
