@@ -100,11 +100,21 @@ const handleSubmit = async (e) => {
 
         //testText = parsedData.
 
-        console.log({messageDiv})
+        //console.log({messageDiv})
         
         // text to speech
        // var msg = new SpeechSynthesisUtterance(voiceMessage);
         //window.speechSynthesis.speak(msg);
+            if(parsedData.startsWith("user")) {
+                let semicolonIndex = variable.indexOf(";");
+                if(semicolonIndex !== -1) {
+                    return parsedData.substring(0, 4) + parsedData.substring(semicolonIndex + 1);
+                }
+                return parsedData
+            }
+        
+
+
 
         typeText(messageDiv, parsedData);
         makeBotTalk(parsedData);
@@ -119,11 +129,11 @@ const handleSubmit = async (e) => {
 }
 
 //text to speech
-    function makeBotTalk(voiceMessage){
+     function makeBotTalk(voiceMessage){
         console.log(voiceMessage)
         var msg = new SpeechSynthesisUtterance(voiceMessage);
         window.speechSynthesis.speak(msg);
-    }
+    } 
 
 
 //speech to texts
